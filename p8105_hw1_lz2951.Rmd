@@ -91,7 +91,7 @@ as.numeric(pull(example_df, char_vec))
 as.numeric(pull(example_df, factor_vec))
 ```
 
-According to the result, logical vector and factor vector could be converted to numeric vector while character vector could not. I think it's because R doesn't have a rule for converting characters of any form to numbers, but for logical and factor variables, this rule exists:
+According to the result, logical vector and factor vector could be converted to numeric vector without warning while character vector could not. I think it's because R doesn't have a rule for converting characters of any form to numbers, but for logical and factor variables, this rule exists:
 
 - For logical variables, 0 refers to FALSE and 1 refers to TRUE
 - For factor variable, R assigns ordinal numbers to factor levels.
