@@ -5,6 +5,8 @@ output: github_document
 date: "2023-09-22"
 ---
 
+# Problem 1
+
 ## Load package and data
 
 ```{r}
@@ -12,3 +14,10 @@ library(moderndive)
 data("early_january_weather")
 ```
 
+## Short description of dataset
+
+According to the dataset help file, we could know that this dataset is hourly meterological data for LGA, JFK and EWR for the month of January 2013. Following is some key information about this dataset:
+
+1. The variables in the dataset are `r names(early_january_weather)`. The values of a important variable 'temp' are `r early_january_weather$temp`.
+2. The dataset has `r nrow(early_january_weather)` rows and `r ncol(early_january_weather)` columns.
+3. The mean of variable 'temp' is `r mean(early_january_weather$temp)`.
