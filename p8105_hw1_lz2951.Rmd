@@ -19,7 +19,12 @@ data("early_january_weather")
 
 According to the dataset help file, we could know that this dataset is hourly meterological data for LGA, JFK and EWR for the month of January 2013. Following is some key information about this dataset:
 
-1. The variables in the dataset are `r names(early_january_weather)`. The values of a important variable 'temp' are `r early_january_weather$temp`.
+1. The variables in the dataset are `r names(early_january_weather)`. The overview of variable values is below:
+
+```{r, echo = FALSE}
+summary(early_january_weather)
+```
+
 2. The dataset has `r nrow(early_january_weather)` rows and `r ncol(early_january_weather)` columns.
 3. The mean of variable 'temp' is `r mean(early_january_weather$temp)`.
 
@@ -40,7 +45,7 @@ Accordig top the scatterplot, from 2013-01-01 to 2013-01-15:
 ## Export scatterplot
 
 ```{r}
-ggsave("scatter_plot.pdf")
+ggsave("scatter_plot.png")
 ```
 
 # Problem 2
