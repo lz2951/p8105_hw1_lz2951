@@ -11,6 +11,7 @@ date: "2023-09-22"
 
 ```{r}
 library(moderndive)
+library(tidyverse)
 data("early_january_weather")
 ```
 
@@ -21,3 +22,16 @@ According to the dataset help file, we could know that this dataset is hourly me
 1. The variables in the dataset are `r names(early_january_weather)`. The values of a important variable 'temp' are `r early_january_weather$temp`.
 2. The dataset has `r nrow(early_january_weather)` rows and `r ncol(early_january_weather)` columns.
 3. The mean of variable 'temp' is `r mean(early_january_weather$temp)`.
+
+## Make a scatterplot and describe it
+
+Make a scatterplot using time_hour as x and temp as y; color points using humid. 
+
+```{r}
+ggplot(early_january_weather, aes(x = time_hour, y = temp, color = humid)) + geom_point()
+```
+
+Accordig top the scatterplot, from 2013-01-01 to 2013-01-15:
+1. The temperature went up and down within a single day because of sunrise and sunset.
+2. The temperature increased because of seasonal change.
+3. The air became dryer as temperature increased within a day.
