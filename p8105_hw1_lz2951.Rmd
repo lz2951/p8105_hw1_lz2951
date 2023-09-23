@@ -19,22 +19,19 @@ data("early_january_weather")
 
 According to the dataset help file, we could know that this dataset is hourly meterological data for LGA, JFK and EWR for the month of January 2013. Following is some key information about this dataset:
 
-1. The variables in the dataset are `r names(early_january_weather)`. The values of a important variable 'temp' are `r early_january_weather$temp`.
-2. The dataset has `r nrow(early_january_weather)` rows and `r ncol(early_january_weather)` columns.
-3. The mean of variable 'temp' is `r mean(early_january_weather$temp)`.
+1.  The variables in the dataset are `r names(early_january_weather)`. The values of a important variable 'temp' are `r early_january_weather$temp`.
+2.  The dataset has `r nrow(early_january_weather)` rows and `r ncol(early_january_weather)` columns.
+3.  The mean of variable 'temp' is `r mean(early_january_weather$temp)`.
 
 ## Make a scatterplot and describe it
 
-Make a scatterplot using time_hour as x and temp as y; color points using humid. 
+Make a scatterplot using time_hour as x and temp as y; color points using humid.
 
 ```{r}
 ggplot(early_january_weather, aes(x = time_hour, y = temp, color = humid)) + geom_point()
 ```
 
-Accordig top the scatterplot, from 2013-01-01 to 2013-01-15:
-1. The temperature went up and down within a single day because of sunrise and sunset.
-2. The temperature increased because of seasonal change.
-3. The air became dryer as temperature increased within a day.
+Accordig top the scatterplot, from 2013-01-01 to 2013-01-15: 1. The temperature went up and down within a single day because of sunrise and sunset. 2. The temperature increased because of seasonal change. 3. The air became dryer as temperature increased within a day.
 
 ## Export scatterplot
 
@@ -48,10 +45,10 @@ ggsave("scatter_plot.pdf")
 
 This data frame consists of:
 
-- a random sample of size 10 from a standard Normal distribution
-- a logical vector indicating whether elements of the sample are greater than 0
-- a character vector of length 10
-- a factor vector of length 10, with 3 different factor “levels”
+-   a random sample of size 10 from a standard Normal distribution
+-   a logical vector indicating whether elements of the sample are greater than 0
+-   a character vector of length 10
+-   a factor vector of length 10, with 3 different factor "levels"
 
 ```{r}
 random_sample = rnorm(10)
@@ -75,5 +72,19 @@ mean_factor = mean(pull(example_df, factor_vec))
 
 According to the results, the mean function works for mean_numeric which is numeric variable and mean_log which is logical variable.
 
+## Convert variables
 
+Apply as.numeric() function to three non-numeric variables.
 
+```{r, results = 'hide'}
+as.numeric(pull(example_df, log_gt10))
+as.numeric(pull(example_df, char_vec))
+as.numeric(pull(example_df, factor_vec))
+```
+
+According to the result, logical vector and factor vector could be converted to numeric vector while character vector could not. I think it's because R doesn't have a rule for converting characters of any form to numbers, but for logical and factor variables, this rule exists:
+
+- For logical variables, 0 refers to FALSE and 1 refers to TRUE
+- For factor variable, R assigns ordinal numbers to factor levels.
+
+I guess when I try to conduct mean() to a non-numeric variable vector, this function firstly tries to convert variable to numeric variable, that's why I can get mean of a logical variable vector but I can't get it for a character vector. As for factor vector, although it can be converted to a numeric variable, the mean of this numeric variable has no statistical significance.
