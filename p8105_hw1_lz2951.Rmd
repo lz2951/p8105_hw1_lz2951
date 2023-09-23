@@ -42,3 +42,28 @@ Accordig top the scatterplot, from 2013-01-01 to 2013-01-15:
 ggsave("scatter_plot.pdf")
 ```
 
+# Problem 2
+
+## Create a data frame
+
+This data frame consists of:
+
+- a random sample of size 10 from a standard Normal distribution
+- a logical vector indicating whether elements of the sample are greater than 0
+- a character vector of length 10
+- a factor vector of length 10, with 3 different factor “levels”
+
+```{r}
+random_sample = rnorm(10)
+example_df = tibble(
+  numeric_norm = random_sample,
+  log_gt10 = random_sample > 0,
+  char_vec = c("one","two","three","four","five","six","seven","eight","nine","ten"),
+  factor_vec = factor(c("A","A","A","B","B","B","C","C","C","C"))
+)
+example_df
+```
+
+
+
+
