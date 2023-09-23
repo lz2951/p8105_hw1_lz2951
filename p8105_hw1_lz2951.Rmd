@@ -64,6 +64,16 @@ example_df = tibble(
 example_df
 ```
 
+## Calculate the mean of each variable
+
+```{r}
+mean_numeric = mean(pull(example_df, numeric_norm))
+mean_log = mean(pull(example_df, log_gt10))
+mean_char = mean(pull(example_df, char_vec))
+mean_factor = mean(pull(example_df, factor_vec))
+```
+
+According to the results, the mean function works for mean_numeric which is numeric variable and mean_log which is logical variable.
 
 
 
