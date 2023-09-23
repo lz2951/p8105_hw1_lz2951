@@ -5,3 +5,10 @@ output: github_document
 date: "2023-09-22"
 ---
 
+## Load package and data
+
+```{r}
+library(moderndive)
+data("early_january_weather")
+```
+
