@@ -79,7 +79,9 @@ mean_char = mean(pull(example_df, char_vec))
 mean_factor = mean(pull(example_df, factor_vec))
 ```
 
-According to the results, the mean function works for mean_numeric which is numeric variable and mean_log which is logical variable.
+According to the results, the mean function works for numeric_norm which is numeric variable and log_gt10 which is logical variable.
+
+The mean of numeric_n is `r mean_numeric`, the mean of log_gt10 is `r mean_log`
 
 ## Convert variables
 
